@@ -1,0 +1,27 @@
+{
+  "tables": [
+    {
+      "name": "Item",
+      "permissions": {
+        "insert": "user",
+        "read": "user",
+        "update": "user",
+        "delete": "user"
+      }
+    },
+    {
+      "name": "User",
+      "permissions": {
+        "insert": "user",
+        "read": "user",
+        "update": "public",
+        "delete": "admin"
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "name": "checkSaldo"
+    }
+  ]
+}
