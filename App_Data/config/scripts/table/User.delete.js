@@ -1,6 +1,6 @@
 
 function del(id, user, request) {
 
-    request.execute();
+    //request.execute();
 
 }

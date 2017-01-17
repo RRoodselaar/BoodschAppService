@@ -29,8 +29,8 @@ function insert(item, user, request) {
     request.execute({
         success: function() {
             if (users.indexOf(item.userId) == -1) {
-                    updateUser(item.userId, parseFloat(item.amount));
-                    i++;
+                updateUser(item.userId, parseFloat(item.amount));
+                i++;
             }
 
             users.forEach(function (u) {
