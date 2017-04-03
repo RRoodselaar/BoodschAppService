@@ -11,33 +11,27 @@ function read(query, user, request) {
         success: function (identities) {
             if (identities.facebook) {
                 var fbAccessToken = identities.facebook.accessToken;
-                var url = "https://graph.facebook.com/me/friends?fields=id&limit=10&access_token=" + fbAccessToken;
+                var url = "https://graph.facebook.com/me/friends?fields=id&access_token=" + fbAccessToken;
                 getFriends(url,request,function(){
                     request.execute({
                         success: function(users) {
-                            var result = [];
                             friends.push({"id":user.userId.split(':')[1]});
-                            users.forEach(function(user) {
-                                friends.forEach(function(friend){
-                                    if (friend.id==user.id.split(':')[1]) {
-                                        result.push(user);
-                                        return;
-                                    }
-                                });
+                            users.map(function(u){
+                                return {"id":u.id.split(':')[1]};
+                            }).filter(function(f){
+                                return friends.indexOf(f) > -1;
                             });
-                            request.respond(200, result);
+                            
+                            request.respond(200, users);
                         }
-                    });/*
-                    query.where(function(user){//{ userId: user.userId });
-                        return this.id == user.userId
-                            || friends.any({"id":this.id.split(':')[1]});
-                   }, user);*/
+                    });
                 });
             }
         }
     });
 }
 
+// The Facebook API returns only "friends" that make recent use of _this_ app
 function getFriends(url,request,callback) {
     var req = require('request');
     req(url, function (error, response, body){
