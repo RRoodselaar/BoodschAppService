@@ -19,7 +19,7 @@
     "sendgrid": "0.2.4",
     "tripwire": "0.6.0",
     "underscore": "1.4.3",
-    "underscore.string": "2.3.1",
+    "underscore.string": "3.3.5",
     "wns": "0.5.3",
     "xml2js": "0.2.2",
     "xmlbuilder": "0.4.2",
