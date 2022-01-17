@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.8.0
+version: v1.22.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -20,3 +20,15 @@ patch:
         patched: '2017-10-31T18:16:00.753Z'
     - azure-mobile-services > azure > azure-sb > azure-common > request:
         patched: '2017-10-31T18:16:00.753Z'
+  'npm:http-signature:20150122':
+    - azure-mobile-services > azure > azure-sb > azure-common > request > http-signature:
+        patched: '2022-01-17T13:32:15.642Z'
+  'npm:mime:20170907':
+    - azure-mobile-services > azure > request > mime:
+        patched: '2022-01-17T13:32:15.642Z'
+    - azure-mobile-services > azure > request > form-data > mime:
+        patched: '2022-01-17T13:32:15.642Z'
+    - azure-mobile-services > azure > azure-sb > azure-common > request > mime:
+        patched: '2022-01-17T13:32:15.642Z'
+    - azure-mobile-services > azure > azure-sb > azure-common > request > form-data > mime:
+        patched: '2022-01-17T13:32:15.642Z'
